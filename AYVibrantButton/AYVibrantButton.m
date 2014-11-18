@@ -123,10 +123,10 @@
 		// create overlay views
 		[self createOverlays];
 		
-#ifdef __IPHONE_8_0
-		// add the default vibrancy effect
-		self.vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-#endif
+//#ifdef __IPHONE_8_0
+//		// add the default vibrancy effect
+//		self.vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+//#endif
 		
 		[self addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragInside];
 		[self addTarget:self action:@selector(touchUp) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside | UIControlEventTouchDragOutside | UIControlEventTouchCancel];
@@ -135,9 +135,9 @@
 }
 
 - (void)layoutSubviews {
-#ifdef __IPHONE_8_0
-	self.visualEffectView.frame = self.bounds;
-#endif
+//#ifdef __IPHONE_8_0
+//	self.visualEffectView.frame = self.bounds;
+//#endif
 	self.normalOverlay.frame = self.bounds;
 	self.highlightedOverlay.frame = self.bounds;
 }
@@ -272,27 +272,27 @@
 	self.highlightedOverlay.font = font;
 }
 
-#ifdef __IPHONE_8_0
-- (void)setVibrancyEffect:(UIVibrancyEffect *)vibrancyEffect {
-	
-	_vibrancyEffect = vibrancyEffect;
-	
-	[self.normalOverlay removeFromSuperview];
-	[self.highlightedOverlay removeFromSuperview];
-	[self.visualEffectView removeFromSuperview];
-	
-	if (vibrancyEffect != nil) {
-		self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-		self.visualEffectView.userInteractionEnabled = NO;
-		[self.visualEffectView.contentView addSubview:self.normalOverlay];
-		[self.visualEffectView.contentView addSubview:self.highlightedOverlay];
-		[self addSubview:self.visualEffectView];
-	} else {
-		[self addSubview:self.normalOverlay];
-		[self addSubview:self.highlightedOverlay];
-	}
-}
-#endif
+//#ifdef __IPHONE_8_0
+//- (void)setVibrancyEffect:(UIVibrancyEffect *)vibrancyEffect {
+//	
+//	_vibrancyEffect = vibrancyEffect;
+//	
+//	[self.normalOverlay removeFromSuperview];
+//	[self.highlightedOverlay removeFromSuperview];
+//	[self.visualEffectView removeFromSuperview];
+//	
+//	if (vibrancyEffect != nil) {
+//		self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+//		self.visualEffectView.userInteractionEnabled = NO;
+//		[self.visualEffectView.contentView addSubview:self.normalOverlay];
+//		[self.visualEffectView.contentView addSubview:self.highlightedOverlay];
+//		[self addSubview:self.visualEffectView];
+//	} else {
+//		[self addSubview:self.normalOverlay];
+//		[self addSubview:self.highlightedOverlay];
+//	}
+//}
+//#endif
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
 	self.normalOverlay.backgroundColor = backgroundColor;
@@ -562,12 +562,12 @@
 	[self.buttons makeObjectsPerformSelector:@selector(setFont:) withObject:font];
 }
 
-#ifdef __IPHONE_8_0
-- (void)setVibrancyEffect:(UIVibrancyEffect *)vibrancyEffect {
-	_vibrancyEffect = vibrancyEffect;
-	[self.buttons makeObjectsPerformSelector:@selector(setVibrancyEffect:) withObject:vibrancyEffect];
-}
-#endif
+//#ifdef __IPHONE_8_0
+//- (void)setVibrancyEffect:(UIVibrancyEffect *)vibrancyEffect {
+//	_vibrancyEffect = vibrancyEffect;
+//	[self.buttons makeObjectsPerformSelector:@selector(setVibrancyEffect:) withObject:vibrancyEffect];
+//}
+//#endif
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
 	_backgroundColor = backgroundColor;
