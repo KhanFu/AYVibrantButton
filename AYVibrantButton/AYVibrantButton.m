@@ -157,11 +157,11 @@
 		self.normalOverlay.alpha = self.translucencyAlphaNormal * self.alpha;
 	}
 	
-#ifndef __IPHONE_8_0
+//#ifndef __IPHONE_8_0
 	// for iOS 8, these two overlay views will be added as subviews in setVibrancyEffect:
 	[self addSubview:self.normalOverlay];
 	[self addSubview:self.highlightedOverlay];
-#endif
+//#endif
 
 }
 
